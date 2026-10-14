@@ -20,7 +20,7 @@ class Approach3 extends Approach {
       .reduceByKey(_ + _)
   }
 
-  // Return the two coordinates with the largest record counts
+  // Return the k coordinates with the largest record counts
   private def topKCoords(coordDateCount: RDD[(Coord, Int)], k: Int): Array[Coord] = {
     coordDateCount
       .takeOrdered(k)(Ordering[Int].reverse.on({case (_, count) => count}))
