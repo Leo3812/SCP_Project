@@ -22,7 +22,7 @@ Pre-processing: Le coordinate vengono arrotondate ad un decimale e le date tronc
 ├── src/main/scala/        # Main, Types, Approach ...
 ├── scripts/               # script Python per gli esperimenti su Dataproc
 │   ├── config.py          # parametri (bucket, regione, cluster, ...)
-│   ├── experiments.py     # automazione: cluster, job, risultati
+│   ├── pipeline.py        # automazione: cluster, job, risultati
 │   └── plots.py           # creazione grafici
 ├── Docs/                  # Report e consegna
 ├── Datasets/              # dataset 
@@ -159,19 +159,19 @@ Questo crea il cluster, esegue i job, scarica i risultati ed elimina il cluster 
 3. Lancia un esperimento:
 
 ```bash
-python3 scripts/experiments.py approach          # confronto tra i tre approcci
+python3 scripts/pipeline.py approach          # confronto tra i tre approcci
 ```
 ```bash
-python3 scripts/experiments.py partition         # sensibilità al numero di partizioni (4 worker)
+python3 scripts/pipeline.py partition         # sensibilità al numero di partizioni (4 worker)
 ```
 ```bash
-python3 scripts/experiments.py strong-scaling    # 2, 3 e 4 worker
+python3 scripts/pipeline.py strong-scaling    # 2, 3 e 4 worker
 ```
 
 Un secondo argomento opzionale indica il numero di trial per configurazione (default in `config.py`):
 
 ```bash
-python3 scripts/experiments.py partition 3
+python3 scripts/pipeline.py partition 3
 ```
 
 Ogni esecuzione crea una cartella in `Results/` con un sottodirectory per configurazione (`a<approccio>_p<partizioni>_w<worker>`) contenente i file `trialN.json` e `trialN.txt`, il `summary.json` con mediana e deviazione standard, e i grafici in PNG.
