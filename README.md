@@ -178,4 +178,4 @@ Ogni esecuzione crea una cartella in `Results/` con un sottodirectory per config
 
 ## Autore
 
-`Leonardo Venturi` — `0001184072`
+`Leonardo Venturi` — Matricola: `0001184072`
